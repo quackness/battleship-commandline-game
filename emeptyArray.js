@@ -6,7 +6,10 @@ const ticTacToe = [['-','-','-'],
                   ['-','-','-']];
 ticTacToe[2][2] = 'X'//nora
 ticTacToe[0][2] = 'O'//cameron
-ticTacToe[0][0] = 'O'//simeon
+ticTacToe[0][0] = 'X'//simeon
+ticTacToe[1][1] = '0'//seb
+ticTacToe[2][0] = 'X'//tiff
+ticTacToe[1][0] = 'X'//karo
 
 for(let i=0; i<ticTacToe.length; i++){
     let row = '';
