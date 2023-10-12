@@ -4,4 +4,5 @@
 //create your loop to repeateadly take coordinates
 // two possible outcomes for ending the game, win:
 // win: hitting all the ships before running out of missles
-//lose: running out of missles before hitting all the ships 
+//lose: running out of missles before hitting all the ships
+//abcde and 1,2,3,4 do not store it in grid, it will be console log
