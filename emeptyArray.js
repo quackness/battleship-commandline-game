@@ -21,16 +21,14 @@
 // }
 
 //attempt two
-const ticTacToe = [[null, null, null],
-                  [null, null, null],
-                  [null, null, null]];
-ticTacToe[2][2] = 'X'//nora
-ticTacToe[0][2] = 'O'//cameron
-ticTacToe[0][0] = 'X'//simeon
-ticTacToe[1][1] = '0'//seb
-ticTacToe[2][0] = 'X'//tiff
-ticTacToe[1][0] = 'X'//karo
+// const ticTacToe = [[null, null, null],
+//                   [null, null, null],
+//                   [null, null, null]];
 
+const ticTacToe = Array(3).fill(Array(3).fill(null));
+console.log(">>", ticTacToe);
+
+//read the array
 function displayBoard(boardData) {
     //the code needs to acces to the tictactoe game in order to do its thing
     for(let i=0; i<ticTacToe.length; i++){
@@ -46,6 +44,22 @@ function displayBoard(boardData) {
         console.log(row)
     }
 };
+
+//users moves
+
+ticTacToe[2][2] = 'X'//nora
+displayBoard();
+ticTacToe[0][2] = 'O'//cameron
+displayBoard();
+ticTacToe[0][0] = 'X'//simeon
+displayBoard();
+ticTacToe[1][1] = '0'//seb
+displayBoard();
+ticTacToe[2][0] = 'X'//tiff
+displayBoard();
+ticTacToe[1][0] = 'X'//karo
+displayBoard();
+
 
 //call the function
 displayBoard();
