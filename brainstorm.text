@@ -1,3 +1,7 @@
 //store data from the file into a 2 d array for reading >> mapAraray for reading
 // create second 2d array to store your gameplay (hits and misses)
-// - create a function in the above that can display game Play array
+//   - create a function in the above that can display game Play array
+//create your loop to repeateadly take coordinates
+// two possible outcomes for ending the game, win:
+// win: hitting all the ships before running out of missles
+//lose: running out of missles before hitting all the ships 
