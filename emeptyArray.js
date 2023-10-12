@@ -31,15 +31,34 @@ ticTacToe[1][1] = '0'//seb
 ticTacToe[2][0] = 'X'//tiff
 ticTacToe[1][0] = 'X'//karo
 
-for(let i=0; i<ticTacToe.length; i++){
-    let row = '';
-    for(let j=0; j<ticTacToe[i].length; j++){
-        //create a visual of each row and print to the screen
-        if (ticTacToe[i][j] != null) {
-            row += ticTacToe[i][j] + ' '
-        } else {
-            row += ' _ '
+function displayBoard(boardData) {
+    //the code needs to acces to the tictactoe game in order to do its thing
+    for(let i=0; i<ticTacToe.length; i++){
+        let row = '';
+        for(let j=0; j<ticTacToe[i].length; j++){
+            //create a visual of each row and print to the screen
+            if (ticTacToe[i][j] != null) {
+                row += ticTacToe[i][j] + ' '
+            } else {
+                row += ' _ '
+            }
         }
+        console.log(row)
     }
-    console.log(row)
-}
+};
+
+//call the function
+displayBoard();
+
+// for(let i=0; i<ticTacToe.length; i++){
+//     let row = '';
+//     for(let j=0; j<ticTacToe[i].length; j++){
+//         //create a visual of each row and print to the screen
+//         if (ticTacToe[i][j] != null) {
+//             row += ticTacToe[i][j] + ' '
+//         } else {
+//             row += ' _ '
+//         }
+//     }
+//     console.log(row)
+// }
