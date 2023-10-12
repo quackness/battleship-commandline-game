@@ -1,2 +1,3 @@
-//store data from the file into a 2 d array for reading >> map araray for reading
-// creat second 2 d array to store your gameplay (hits and misses)
+//store data from the file into a 2 d array for reading >> mapAraray for reading
+// create second 2d array to store your gameplay (hits and misses)
+// - create a function in the above that can display game Play array
