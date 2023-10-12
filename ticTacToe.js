@@ -25,7 +25,8 @@
 //                   [null, null, null],
 //                   [null, null, null]];
 
-const ticTacToe = Array(3).fill(Array(3).fill(null));
+// const ticTacToe = Array(3).fill(Array(3).fill(null));
+const ticTacToe = Array.from({length: 3}, e => Array(3).fill(null));
 console.log(">>", ticTacToe);
 
 //read the array
