@@ -4,8 +4,9 @@
 const ticTacToe = [['-','-','-'],
                   ['-','-','-'],
                   ['-','-','-']];
-ticTacToe[2][2] = 'X'
-ticTacToe[0][2] = 'O'
+ticTacToe[2][2] = 'X'//nora
+ticTacToe[0][2] = 'O'//cameron
+ticTacToe[0][0] = 'O'//simeon
 
 for(let i=0; i<ticTacToe.length; i++){
     let row = '';
