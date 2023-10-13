@@ -41,18 +41,32 @@ console.log("fin", reversed);
 let castTonumber = (Number(reversed[0]));
 reversed.splice(0, 1, castTonumber)
 console.log(reversed);
+//coords are for example [ 2, 1 ]
 
-for(let i = 0; i<battleBoard.length; i++){
+// for(let i = 0; i<battleBoard.length; i++){
+//     let row = '';
+//     for(let j=0; j<battleBoard[i].length; j++){
+//         //create a visual of each row and print to the screen
+//         if (battleBoard[i][j] != " ") {
+//             row += battleBoard[i][j] + ' '
+//         } else {
+//             row += ' _ '
+//         }
+//     }
+//     console.log(row)
+// }
+
+battleBoard[reversed[0]][reversed[1]] = "X";
+console.log("  A B C D E F G H I J")
+let counter = 0;
+for(let i=0; i< battleBoard.length; i++){
     let row = '';
+    counter ++;
     for(let j=0; j<battleBoard[i].length; j++){
         //create a visual of each row and print to the screen
-        if (battleBoard[i][j] != " ") {
-            row += battleBoard[i][j] + ' '
-        } else {
-            row += ' _ '
-        }
+        row += battleBoard[i][j] + ' '
     }
-    console.log(row)
+    console.log(`${counter} ${row}`)
 }
 
 
