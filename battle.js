@@ -3,10 +3,10 @@ console.log("Let's play battleship!");
 console.log("You have 30 misses to fire to sink all fixe ships.");
 
 //read the file
-var readlineSync = require('readline-sync');
+let readlineSync = require('readline-sync');
 const fs = require('fs');
 let read = fs.readFileSync(__dirname + '/map.txt', 'utf8');
-console.log(read);
+console.log("raw file", read);
 //create a grid, an outline should be letters and numbers
 //inner grid inside should be the file content
 //ask the user for target
@@ -14,35 +14,49 @@ console.log(read);
 //deduct from the shots
 //dipslay the message
 
-const gameplayGrid = [[null,null,null,null,null,null,null,null,null,null],
-                      [null,null,null,null,null,null,null,null,null,null],
-                      [null,null,null,null,null,null,null,null,null,null],
-                      [null,null,null,null,null,null,null,null,null,null],
-                      [null,null,null,null,null,null,null,null,null,null],
-                      [null,null,null,null,null,null,null,null,null,null],
-                      [null,null,null,null,null,null,null,null,null,null],
-                      [null,null,null,null,null,null,null,null,null,null],
-                      [null,null,null,null,null,null,null,null,null,null],
-                      [null,null,null,null,null,null,null,null,null,null]]
+//split by \r and \n
+ let splitReadfile = read.split('\r\n');
+//  console.log("split", splitReadfile);
+ let grid = [];
+ for (let i = 0; i < splitReadfile.length; i++) {
+    // console.log(splitReadfile[i])
+    let mapLine = splitReadfile[i].split(',')
+    //create a grid
+    grid.push(mapLine);
+ }
+ console.log(grid);
 
-const gameplayGrid2 = [].fill([].fill('A', 10), 10)
+//create a game board
+const battleBoard = Array.from({length: 10}, e => Array(10).fill(null));
+console.log("battleBoard", battleBoard);
+//ask for input
+let shoot = readlineSync.question("Choose your target (Ex. A1): ")
+console.log(shoot)
+let coordinates = shoot.split('');
+console.log(coordinates);
+// console.log(shootArray);
+//reverse the input
+let reversed = coordinates.reverse();
+console.log(reversed);
 
-console.log(gameplayGrid2)
 
-const lettersUpped = [' ','A','B','C','D','E','F','G','H','I','J'];
-// const lettersUpped = " ,A,B,C,D,E,F,G,H,I,J";
-const numbers = [' ',1,2,3,4,5,6,7,8,9,10]
-// let letters = '';
-// console.log(lettersUpped.split(','));
-let grid = [];
-for (let i = 0; i < numbers.length; i++ ) {
-    grid.push(numbers[i])
-    console.log(numbers[i]);
-    for (let j = 0; j < lettersUpped.length; j++) {
-        // console.log(lettersUpped[i]);
-        grid.push(lettersUpped[j])
-    }
-};
-console.log(grid);
+
+
+
+// const gameplayGrid = [[null,null,null,null,null,null,null,null,null,null],
+//                       [null,null,null,null,null,null,null,null,null,null],
+//                       [null,null,null,null,null,null,null,null,null,null],
+//                       [null,null,null,null,null,null,null,null,null,null],
+//                       [null,null,null,null,null,null,null,null,null,null],
+//                       [null,null,null,null,null,null,null,null,null,null],
+//                       [null,null,null,null,null,null,null,null,null,null],
+//                       [null,null,null,null,null,null,null,null,null,null],
+//                       [null,null,null,null,null,null,null,null,null,null],
+//                       [null,null,null,null,null,null,null,null,null,null]]
+
+// const gameplayGrid2 = [].fill([].fill('A', 10), 10)
+
+// console.log(gameplayGrid2)
+
 
 
