@@ -23,11 +23,16 @@ console.log("raw file", read);
 //create a game board
 const battleBoard = Array.from({length: 10}, e => Array(10).fill(" "));
 console.log("battleBoard", battleBoard);
-//ask for input
+ let misslesLeft = 30
+
+ while (misslesLeft > 0) {
+
+
+    //ask for input
 let shoot = readlineSync.question("Choose your target (Ex. A1): ")
 // console.log(shoot)
 let coordinates = shoot.split('');
-// console.log(coordinates);
+console.log(coordinates);
 // console.log(shootArray);
 //reverse the input
 let reversed = coordinates.reverse();
@@ -55,22 +60,34 @@ console.log(reversed);
 //     }
 //     console.log(row)
 // }
-
-battleBoard[reversed[0]][reversed[1]] = "X";
 console.log("  A B C D E F G H I J")
+battleBoard[reversed[0]-1][reversed[1]-1] = "X";
+
+
 let counter = 0;
 for(let i=0; i< battleBoard.length; i++){
     let row = '';
     counter ++;
     for(let j=0; j<battleBoard[i].length; j++){
         //create a visual of each row and print to the screen
-        row += battleBoard[i][j] + ' '
+        row += battleBoard[i][j] + ' ';
     }
     console.log(`${counter} ${row}`)
 }
 
 
 
+
+
+ }
+
+
+
+
+
+
+
+//issue with 10, probably when reversing it it does 01, it should be a number to begin with
 
 
 // const gameplayGrid = [[null,null,null,null,null,null,null,null,null,null],
