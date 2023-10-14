@@ -3,7 +3,7 @@ console.log("Let's play battleship!");
 console.log("You have 30 misses to fire to sink all fixe ships.");
 const battleBoard = Array.from({ length: 10 }, e => Array(10).fill(" "));
 const board = function () {
-    console.log("  A B C D E F G H I J")
+    console.log("   A B C D E F G H I J")
     let counter = 0;
     for (let i = 0; i < battleBoard.length; i++) {
         let row = '';
@@ -44,21 +44,34 @@ while (misslesLeft > 1) {
     misslesLeft = misslesLeft - 1;
     console.log(`You have ${misslesLeft} missiles left.`);
     // console.log(shoot)
-    let coordinates = shoot.split('');
+
+
+    let coordinates = [];
+    // let extractedLetterCoordinate = shoot.charAt(0);
     console.log(coordinates);
     // console.log(shootArray);
     //reverse the input
-    let reversed = coordinates.reverse();
-    console.log("reversed", reversed);
+
+//
+
+    // let reversed = coordinates.reverse();
+    // console.log("reversed", reversed);
     let letters = [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
-    let extractedLetterCoordinate = letters.indexOf(reversed[1]);
+
+    let extractedNumber = shoot.slice(1);
+    // console.log(extractedNumber);
+    let numberCoordinates = parseInt(extractedNumber);
+
+    coordinates[0] = numberCoordinates;
+    let extractedLetterCoordinate = letters.indexOf(shoot.charAt(0));
+    coordinates[1] = extractedLetterCoordinate;
     console.log(extractedLetterCoordinate);
-    console.log("reversed2", reversed);
-    reversed.splice(1, 1, extractedLetterCoordinate)
-    console.log("fin", reversed);
-    let castTonumber = (Number(reversed[0]));
-    reversed.splice(0, 1, castTonumber)
-    console.log(reversed);
+    // console.log("reversed2", reversed);
+    // reversed.splice(1, 1, extractedLetterCoordinate)
+    // console.log("fin", reversed);
+    // let castTonumber = (Number(reversed[0]));
+
+    console.log(numberCoordinates);
     //coords are for example [ 2, 1 ]
 
     // for(let i = 0; i<battleBoard.length; i++){
@@ -76,7 +89,7 @@ while (misslesLeft > 1) {
     // console.log("  A B C D E F G H I J")
 
 
-    battleBoard[reversed[0] - 1][reversed[1] - 1] = "o";
+    battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "O";
     board();
 
 
