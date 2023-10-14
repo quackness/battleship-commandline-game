@@ -38,7 +38,7 @@ for (let i = 0; i < splitReadfile.length; i++) {
 // console.log("battleBoard", battleBoard);
 let misslesLeft = 5;
 
-while (misslesLeft > 1) {
+while (misslesLeft >= 1) {
     //ask for input
     let shoot = readlineSync.question("Choose your target (Ex. A1): ")
     misslesLeft = misslesLeft - 1;
@@ -104,7 +104,7 @@ while (misslesLeft > 1) {
     //     console.log(`${counter} ${row}`)
     // }
 }
-console.log('You have 0 misses remaining. Game over')
+console.log('You have 0 missiles remaining. Game over')
 
 
 
