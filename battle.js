@@ -3,7 +3,7 @@ console.log("Let's play battleship!");
 console.log("You have 30 misses to fire to sink all fixe ships.");
 const battleBoard = Array.from({ length: 10 }, e => Array(10).fill(" "));
 const board = function () {
-    console.log("   A B C D E F G H I J")
+    console.log("  A B C D E F G H I J")
     let counter = 0;
     for (let i = 0; i < battleBoard.length; i++) {
         let row = '';
@@ -31,7 +31,7 @@ for (let i = 0; i < splitReadfile.length; i++) {
     //create a grid
     grid.push(mapLine);
 }
-// console.log(grid);
+console.log(grid);
 
 //create a game board
 // const battleBoard = Array.from({ length: 10 }, e => Array(10).fill(" "));
@@ -52,7 +52,7 @@ while (misslesLeft >= 1) {
     // console.log(shootArray);
     //reverse the input
 
-//
+    //
 
     // let reversed = coordinates.reverse();
     // console.log("reversed", reversed);
@@ -72,7 +72,6 @@ while (misslesLeft >= 1) {
     // let castTonumber = (Number(reversed[0]));
 
     console.log(numberCoordinates);
-    //coords are for example [ 2, 1 ]
 
     // for(let i = 0; i<battleBoard.length; i++){
     //     let row = '';
@@ -88,9 +87,29 @@ while (misslesLeft >= 1) {
     // }
     // console.log("  A B C D E F G H I J")
 
+    for (let j = 0; j < grid.length; j++) {
+        console.log(">>", grid[j])
+        for (let k = 0; k < grid[j].length; k++) {
+            if (grid[j][k] = 0) {
+                battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "O";
+                board();
+            } else {
+                battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "X";
+                board();
+            }
+        }
+    }
 
-    battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "O";
-    board();
+    //if miss
+
+    // if (grid[i][j] === 0) {
+    //     battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "X";
+    //     board();
+    // } else {
+    //     battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "O";
+    //     board();
+    // }
+
 
 
     // let counter = 0;
@@ -112,7 +131,7 @@ console.log('You have 0 missiles remaining. Game over')
 
 
 
-//issue with 10, probably when reversing it it does 01, it should be a number to begin with
+
 
 
 // const gameplayGrid = [[null,null,null,null,null,null,null,null,null,null],
@@ -125,9 +144,6 @@ console.log('You have 0 missiles remaining. Game over')
 //                       [null,null,null,null,null,null,null,null,null,null],
 //                       [null,null,null,null,null,null,null,null,null,null],
 //                       [null,null,null,null,null,null,null,null,null,null]]
-
-// const gameplayGrid2 = [].fill([].fill('A', 10), 10)
-
 // console.log(gameplayGrid2)
 
 
