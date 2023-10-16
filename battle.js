@@ -81,7 +81,7 @@ while (misslesLeft >= 1) {
     console.log(coordinates[0] - 1);
     console.log(coordinates[1] - 1);
 
-
+//check what is in the grid array 1 or 0, then apply X or O accordingly 
 if (grid[coordinates[0] - 1][coordinates[1] - 1] == "1") {
     battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "X";
     board();
