@@ -93,28 +93,7 @@ if (grid[coordinates[0] - 1][coordinates[1] - 1] == "1") {
 
 
 
-    //if miss
 
-    // if (grid[i][j] === 0) {
-    //     battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "X";
-    //     board();
-    // } else {
-    //     battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "O";
-    //     board();
-    // }
-
-
-
-    // let counter = 0;
-    // for (let i = 0; i < battleBoard.length; i++) {
-    //     let row = '';
-    //     counter++;
-    //     for (let j = 0; j < battleBoard[i].length; j++) {
-    //         //create a visual of each row and print to the screen
-    //         row += battleBoard[i][j] + ' ';
-    //     }
-    //     console.log(`${counter} ${row}`)
-    // }
 }
 console.log('You have 0 missiles remaining. Game over')
 
