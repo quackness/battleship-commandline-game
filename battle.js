@@ -45,12 +45,13 @@ while (misslesLeft >= 1) {
     let shoot = readlineSync.question("Choose your target (Ex. A1): ")
     misslesLeft = misslesLeft - 1;
     console.log(`You have ${misslesLeft} missiles left.`);
+
     // console.log(shoot)
 
 
     let coordinates = [];
     // let extractedLetterCoordinate = shoot.charAt(0);
-    console.log(coordinates);
+    // console.log(coordinates);
     // console.log(shootArray);
     //reverse the input
 
@@ -77,30 +78,31 @@ while (misslesLeft >= 1) {
 
     // console.log(numberCoordinates - 1);
     // console.log(extractedLetterCoordinate - 1);
-    console.log(coordinates[0]);
-    console.log(coordinates[1]);
-    console.log("after - 1")
-    console.log(coordinates[0] - 1);
-    console.log(coordinates[1] - 1);
+    // console.log(coordinates[0]);
+    // console.log(coordinates[1]);
+    // console.log("after - 1")
+    // console.log(coordinates[0] - 1);
+    // console.log(coordinates[1] - 1);
 
 
 
     //check what is in the grid array 1 or 0, then apply X or O accordingly
     if (grid[coordinates[0] - 1][coordinates[1] - 1] == "1") {
         battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "X";
+        console.log("HIT!!!!!!!")
         hit++;
         board();
     } else {
         battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "O";
+        console.log("Miss")
         miss++;
         board();
     }
 
 
 }
-console.log('You have 0 missiles remaining.');
-console.log('GAME OVER');
-console.log(`You had ${hit} out of ${totalHitsTaken} hits.`)
+console.log(`You have 0 missiles remaining.\nGAME OVER.\nYou had ${hit} out of 17 hits.\nBetter luck next time.`);
+
 
 
 
