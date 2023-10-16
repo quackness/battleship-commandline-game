@@ -32,11 +32,13 @@ for (let i = 0; i < splitReadfile.length; i++) {
     grid.push(mapLine);
 }
 // console.log(grid);
-
+let totalHitsTaken = grid.filter(x => x === "1").length
 //create a game board
 // const battleBoard = Array.from({ length: 10 }, e => Array(10).fill(" "));
 // console.log("battleBoard", battleBoard);
 let misslesLeft = 5;
+let hit = 0;
+let miss = 0;
 
 while (misslesLeft >= 1) {
     //ask for input
@@ -81,21 +83,24 @@ while (misslesLeft >= 1) {
     console.log(coordinates[0] - 1);
     console.log(coordinates[1] - 1);
 
-//check what is in the grid array 1 or 0, then apply X or O accordingly 
-if (grid[coordinates[0] - 1][coordinates[1] - 1] == "1") {
-    battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "X";
-    board();
-} else {
-    battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "O";
-    board();
+
+
+    //check what is in the grid array 1 or 0, then apply X or O accordingly
+    if (grid[coordinates[0] - 1][coordinates[1] - 1] == "1") {
+        battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "X";
+        hit++;
+        board();
+    } else {
+        battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "O";
+        miss++;
+        board();
+    }
+
+
 }
-
-
-
-
-
-}
-console.log('You have 0 missiles remaining. Game over')
+console.log('You have 0 missiles remaining.');
+console.log('GAME OVER');
+console.log(`You had ${hit} out of ${totalHitsTaken} hits.`)
 
 
 
