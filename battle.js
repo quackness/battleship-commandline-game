@@ -31,7 +31,7 @@ for (let i = 0; i < splitReadfile.length; i++) {
     //create a grid
     grid.push(mapLine);
 }
-console.log(grid);
+// console.log(grid);
 
 //create a game board
 // const battleBoard = Array.from({ length: 10 }, e => Array(10).fill(" "));
@@ -65,40 +65,33 @@ while (misslesLeft >= 1) {
     coordinates[0] = numberCoordinates;
     let extractedLetterCoordinate = letters.indexOf(shoot.charAt(0));
     coordinates[1] = extractedLetterCoordinate;
-    console.log(extractedLetterCoordinate);
+    // console.log(extractedLetterCoordinate);
     // console.log("reversed2", reversed);
     // reversed.splice(1, 1, extractedLetterCoordinate)
     // console.log("fin", reversed);
     // let castTonumber = (Number(reversed[0]));
 
-    console.log(numberCoordinates);
+    // console.log(numberCoordinates);
 
-    // for(let i = 0; i<battleBoard.length; i++){
-    //     let row = '';
-    //     for(let j=0; j<battleBoard[i].length; j++){
-    //         //create a visual of each row and print to the screen
-    //         if (battleBoard[i][j] != " ") {
-    //             row += battleBoard[i][j] + ' '
-    //         } else {
-    //             row += ' _ '
-    //         }
-    //     }
-    //     console.log(row)
-    // }
-    // console.log("  A B C D E F G H I J")
+    // console.log(numberCoordinates - 1);
+    // console.log(extractedLetterCoordinate - 1);
+    console.log(coordinates[0]);
+    console.log(coordinates[1]);
+    console.log("after - 1")
+    console.log(coordinates[0] - 1);
+    console.log(coordinates[1] - 1);
 
-    for (let j = 0; j < grid.length; j++) {
-        console.log(">>", grid[j])
-        for (let k = 0; k < grid[j].length; k++) {
-            if (grid[j][k] = 0) {
-                battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "O";
-                board();
-            } else {
-                battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "X";
-                board();
-            }
-        }
-    }
+
+if (grid[coordinates[0] - 1][coordinates[1] - 1] == "1") {
+    battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "X";
+    board();
+} else {
+    battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "O";
+    board();
+}
+
+
+
 
     //if miss
 
