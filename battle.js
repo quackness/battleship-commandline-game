@@ -2,7 +2,12 @@
 console.log("Let's play battleship!");
 console.log("You have 30 misses to fire to sink all fixe ships.");
 const battleBoard = Array.from({ length: 10 }, e => Array(10).fill(" "));
-const board = function () {
+const board = function (shotResult) {
+    if(shotResult !== undefined){
+        console.log(shotResult ? "HIT!!!" : "Miss")
+    }
+
+
     console.log("  A B C D E F G H I J")
     let counter = 0;
     for (let i = 0; i < battleBoard.length; i++) {
@@ -32,31 +37,35 @@ for (let i = 0; i < splitReadfile.length; i++) {
     grid.push(mapLine);
 }
 // console.log(grid);
-let totalHitsTaken = grid.filter(x => x === "1").length
 //create a game board
 // const battleBoard = Array.from({ length: 10 }, e => Array(10).fill(" "));
 // console.log("battleBoard", battleBoard);
 let misslesLeft = 5;
 let hit = 0;
 let miss = 0;
+// shotResult? "HIT!!!" : "Miss";
+// console.log(shotResult);
+
+// function status(value) {
+//     console.log(shotResult? "HIT!!!" : "Miss");
+//   }
+let shotResult;
 
 while (misslesLeft >= 1) {
     //ask for input
+
     let shoot = readlineSync.question("Choose your target (Ex. A1): ")
+
+
     misslesLeft = misslesLeft - 1;
     console.log(`You have ${misslesLeft} missiles left.`);
 
     // console.log(shoot)
-
-
     let coordinates = [];
     // let extractedLetterCoordinate = shoot.charAt(0);
     // console.log(coordinates);
     // console.log(shootArray);
     //reverse the input
-
-    //
-
     // let reversed = coordinates.reverse();
     // console.log("reversed", reversed);
     let letters = [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
@@ -66,7 +75,7 @@ while (misslesLeft >= 1) {
     let numberCoordinates = parseInt(extractedNumber);
 
     coordinates[0] = numberCoordinates;
-    let extractedLetterCoordinate = letters.indexOf(shoot.charAt(0));
+    let extractedLetterCoordinate = letters.indexOf(shoot.charAt(0).toLowerCase());
     coordinates[1] = extractedLetterCoordinate;
     // console.log(extractedLetterCoordinate);
     // console.log("reversed2", reversed);
@@ -88,15 +97,19 @@ while (misslesLeft >= 1) {
 
     //check what is in the grid array 1 or 0, then apply X or O accordingly
     if (grid[coordinates[0] - 1][coordinates[1] - 1] == "1") {
+        shotResult = true;
+        // status(true);
         battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "X";
-        console.log("HIT!!!!!!!")
+        // console.log("HIT!!!!!!!")
         hit++;
-        board();
+        board(shotResult);
     } else {
+        // console.log("Miss")
+        // status(false);
+        shotResult = false;
         battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "O";
-        console.log("Miss")
         miss++;
-        board();
+        board(shotResult);
     }
 
 
