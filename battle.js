@@ -38,6 +38,22 @@ for (let i = 0; i < splitReadfile.length; i++) {
     //create a grid
     grid.push(mapLine);
 }
+
+let countX = 0;
+console.log("grid", grid);
+for (let h = 0; h < grid.length; h++){
+    // console.log(">>", grid[h]);
+    for(let o = 0; o < grid[h].length; o++) {
+        console.log(">>", grid[h][o]);
+        if (grid[h][o] === "1") {
+            countX++;
+        }
+    }
+}
+
+
+
+
 // console.log(grid);
 //create a game board
 // const battleBoard = Array.from({ length: 10 }, e => Array(10).fill(" "));
