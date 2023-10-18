@@ -1,12 +1,14 @@
 //console.log
 console.log("Let's play battleship!");
 console.log("You have 30 misses to fire to sink all fixe ships.");
+let misslesLeft = 5;
 const battleBoard = Array.from({ length: 10 }, e => Array(10).fill(" "));
 const board = function (shotResult) {
     if(shotResult !== undefined){
         console.log(shotResult ? "HIT!!!" : "Miss")
+        misslesLeft --;
+        console.log(`You have ${misslesLeft} missiles left.`);
     }
-
 
     console.log("  A B C D E F G H I J")
     let counter = 0;
@@ -40,7 +42,7 @@ for (let i = 0; i < splitReadfile.length; i++) {
 //create a game board
 // const battleBoard = Array.from({ length: 10 }, e => Array(10).fill(" "));
 // console.log("battleBoard", battleBoard);
-let misslesLeft = 5;
+// let misslesLeft = 5;
 let hit = 0;
 let miss = 0;
 // shotResult? "HIT!!!" : "Miss";
@@ -57,8 +59,8 @@ while (misslesLeft >= 1) {
     let shoot = readlineSync.question("Choose your target (Ex. A1): ")
 
 
-    misslesLeft = misslesLeft - 1;
-    console.log(`You have ${misslesLeft} missiles left.`);
+    // misslesLeft = misslesLeft - 1;
+    // console.log(`You have ${misslesLeft} missiles left.`);
 
     // console.log(shoot)
     let coordinates = [];
