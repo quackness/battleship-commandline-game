@@ -4,9 +4,9 @@ console.log("You have 30 misses to fire to sink all fixe ships.");
 let misslesLeft = 5;
 const battleBoard = Array.from({ length: 10 }, e => Array(10).fill(" "));
 const board = function (shotResult) {
-    if(shotResult !== undefined){
+    if (shotResult !== undefined) {
         console.log(shotResult ? "HIT!!!" : "Miss")
-        misslesLeft --;
+        misslesLeft--;
         console.log(`You have ${misslesLeft} missiles left.`);
     }
 
@@ -79,35 +79,14 @@ while (misslesLeft >= 1) {
     coordinates[0] = numberCoordinates;
     let extractedLetterCoordinate = letters.indexOf(shoot.charAt(0).toLowerCase());
     coordinates[1] = extractedLetterCoordinate;
-    // console.log(extractedLetterCoordinate);
-    // console.log("reversed2", reversed);
-    // reversed.splice(1, 1, extractedLetterCoordinate)
-    // console.log("fin", reversed);
-    // let castTonumber = (Number(reversed[0]));
-
-    // console.log(numberCoordinates);
-
-    // console.log(numberCoordinates - 1);
-    // console.log(extractedLetterCoordinate - 1);
-    // console.log(coordinates[0]);
-    // console.log(coordinates[1]);
-    // console.log("after - 1")
-    // console.log(coordinates[0] - 1);
-    // console.log(coordinates[1] - 1);
-
-
 
     //check what is in the grid array 1 or 0, then apply X or O accordingly
     if (grid[coordinates[0] - 1][coordinates[1] - 1] == "1") {
-        shotResult = true;
-        // status(true);
-        battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "X";
-        // console.log("HIT!!!!!!!")
+        shotResult = true
+        battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "X"
         hit++;
         board(shotResult);
     } else {
-        // console.log("Miss")
-        // status(false);
         shotResult = false;
         battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "O";
         miss++;
