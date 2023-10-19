@@ -55,19 +55,18 @@ for (let h = 0; h < grid.length; h++) {
 let hit = 0;
 let miss = 0;
 let shotResult;
-
-
+let coordinates = [];
+let letters = [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
 
 while (misslesLeft >= 1) {
     let shoot = readlineSync.question("Choose your target (Ex. A1): ");
-    if (shoot !== undefined) {
-        //ask for input
-
-        // misslesLeft = misslesLeft - 1;
-        // console.log(`You have ${misslesLeft} missiles left.`);
-        // console.log(shoot)
-        let coordinates = [];
-        let letters = [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
+    console.log(shoot);
+    // if (shoot === '') {
+    //     console.log("Invalid input")
+    // } else {
+        misslesLeft = misslesLeft - 1;
+        console.log(`You have ${misslesLeft} missiles left.`);
+        console.log(shoot)
         let extractedNumber = shoot.slice(1);
         // console.log(extractedNumber);
         let numberCoordinates = parseInt(extractedNumber);
@@ -76,8 +75,12 @@ while (misslesLeft >= 1) {
         let extractedLetterCoordinate = letters.indexOf(shoot.charAt(0).toLowerCase());
         coordinates[1] = extractedLetterCoordinate;
 
+        // console.log(grid[coordinates[0] - 1][coordinates[1] - 1]);
+        // if (grid[coordinates[0] - 1][coordinates[1] - 1] === undefined) {
+        //     console.log("Invalid entry")
+        // }
         //check what is in the grid array 1 or 0, then apply X or O accordingly
-        if (grid[coordinates[0] - 1][coordinates[1] - 1] == "1") {
+        if (grid[coordinates[0] - 1][coordinates[1] - 1] == "1" && grid[coordinates[0] - 1][coordinates[1] - 1] !== undefined) {
             shotResult = true
             battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "X"
             hit++;
@@ -87,16 +90,22 @@ while (misslesLeft >= 1) {
             battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "O";
             miss++;
             board(shotResult);
+            //      ask for input
+            // console.log("Invalid entry");
         }
         console.log(countX);
         if (hit == countX) {
             console.log(`YOU SANK MY ENTIRE FLEET!\nYou had ${hit} out of ${countX} hits, which sank all the ships.\n You won, congratulations!`);
             break;
         }
-    } else {
-        console.log("Invalid entry")
     }
-}
+
+
+
+
+
+
+
 
 if (misslesLeft == 0) {
     console.log(`You have 0 missiles remaining.\nGAME OVER.\nYou had ${hit} out of ${countX} hits.\nBetter luck next time.`);
