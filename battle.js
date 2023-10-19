@@ -1,7 +1,7 @@
 //import chalk
 const chalk = require('chalk');
 
-//console.log
+//console.log the intro to the game
 console.log("Let's play battleship!");
 console.log('You have ' + chalk.underline('30 missles') + ' to fire to sink all five ships.');
 console.log(" ");
@@ -93,7 +93,7 @@ while (misslesLeft >= 1) {
 
 
 if (misslesLeft == 0) {
-    console.log(`You have 0 missiles remaining.\nGAME OVER.\nYou had ${hit} out of ${countX} hits.\nBetter luck next time.`);
+    console.log(`You have 0 missiles remaining.\nGAME OVER.\nYou had ${hit} out of ${countX} hits, but did not sink all the ships.\nBetter luck next time.`);
 };
 
 
