@@ -26,6 +26,7 @@ board();
 //read the file
 let readlineSync = require('readline-sync');
 const fs = require('fs');
+const { groupEnd } = require('console');
 let read = fs.readFileSync(__dirname + '/copy.txt', 'utf8');
 
 //split by \r and \n
@@ -51,7 +52,6 @@ for (let h = 0; h < grid.length; h++) {
     }
 }
 
-
 let hit = 0;
 let miss = 0;
 let shotResult;
@@ -61,14 +61,13 @@ let letters = [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
 while (misslesLeft >= 1) {
     let shoot = readlineSync.question("Choose your target (Ex. A1): ");
     console.log(shoot);
-    // if (shoot === '') {
-    //     console.log("Invalid input")
-    // } else {
+    if (shoot === '') {
+        console.log("Invalid input")
+    } else {
         misslesLeft = misslesLeft - 1;
         console.log(`You have ${misslesLeft} missiles left.`);
         console.log(shoot)
         let extractedNumber = shoot.slice(1);
-        // console.log(extractedNumber);
         let numberCoordinates = parseInt(extractedNumber);
 
         coordinates[0] = numberCoordinates;
@@ -80,7 +79,17 @@ while (misslesLeft >= 1) {
         //     console.log("Invalid entry")
         // }
         //check what is in the grid array 1 or 0, then apply X or O accordingly
-        if (grid[coordinates[0] - 1][coordinates[1] - 1] == "1" && grid[coordinates[0] - 1][coordinates[1] - 1] !== undefined) {
+        // if (grid[coordinates[0] - 1][coordinates[1] - 1]) {
+
+        if(coordinates[0] > grid.length || coordinates[1] > grid[0].length){
+            console.log("Invalid input")
+
+        }
+
+        // else if (grid[coordinates[0] - 1][coordinates[1] - 1].indexOf([coordinates[0] - 1][coordinates[1] - 1]) === -1) {
+        //         console.log("Invalid input")
+        // }
+        else if (grid[coordinates[0] - 1][coordinates[1] - 1] == "1") {
             shotResult = true
             battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "X"
             hit++;
@@ -99,10 +108,7 @@ while (misslesLeft >= 1) {
             break;
         }
     }
-
-
-
-
+}
 
 
 
