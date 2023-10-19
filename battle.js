@@ -83,7 +83,7 @@ while (misslesLeft >= 1) {
             board(shotResult);
         }
         if (hit == countX) {
-            console.log(`YOU SANK MY ENTIRE FLEET!\nYou had ${hit} out of ${countX} hits, which sank all the ships.\n You won, congratulations!`);
+            console.log(`YOU SANK MY ENTIRE FLEET!\nYou had ${hit} out of ${countX} hits, which sank all the ships.\nYou won, congratulations!`);
             break;
         }
     }
