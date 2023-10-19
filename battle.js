@@ -31,21 +31,17 @@ let read = fs.readFileSync(__dirname + '/copy.txt', 'utf8');
 
 //split by \r and \n
 let splitReadfile = read.split('\r\n');
-//  console.log("split", splitReadfile);
 let grid = [];
 for (let i = 0; i < splitReadfile.length; i++) {
-    // console.log(splitReadfile[i])
     let mapLine = splitReadfile[i].split(',')
     //create a grid
     grid.push(mapLine);
 }
 
 let countX = 0;
-// console.log("grid", grid);
+
 for (let h = 0; h < grid.length; h++) {
-    // console.log(">>", grid[h]);
     for (let o = 0; o < grid[h].length; o++) {
-        // console.log(">>", grid[h][o]);
         if (grid[h][o] === "1") {
             countX++;
         }
@@ -60,13 +56,9 @@ let letters = [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
 
 while (misslesLeft >= 1) {
     let shoot = readlineSync.question("Choose your target (Ex. A1): ");
-    console.log(shoot);
     if (shoot === '') {
         console.log("Invalid input")
     } else {
-        misslesLeft = misslesLeft - 1;
-        console.log(`You have ${misslesLeft} missiles left.`);
-        console.log(shoot)
         let extractedNumber = shoot.slice(1);
         let numberCoordinates = parseInt(extractedNumber);
 
@@ -74,21 +66,11 @@ while (misslesLeft >= 1) {
         let extractedLetterCoordinate = letters.indexOf(shoot.charAt(0).toLowerCase());
         coordinates[1] = extractedLetterCoordinate;
 
-        // console.log(grid[coordinates[0] - 1][coordinates[1] - 1]);
-        // if (grid[coordinates[0] - 1][coordinates[1] - 1] === undefined) {
-        //     console.log("Invalid entry")
-        // }
-        //check what is in the grid array 1 or 0, then apply X or O accordingly
-        // if (grid[coordinates[0] - 1][coordinates[1] - 1]) {
+        console.log(coordinates);
 
-        if(coordinates[0] > grid.length || coordinates[1] > grid[0].length){
+        if (coordinates[0] > grid.length || coordinates[1] > grid[0].length || coordinates[0] === NaN || coordinates[1] === -1) {
             console.log("Invalid input")
-
         }
-
-        // else if (grid[coordinates[0] - 1][coordinates[1] - 1].indexOf([coordinates[0] - 1][coordinates[1] - 1]) === -1) {
-        //         console.log("Invalid input")
-        // }
         else if (grid[coordinates[0] - 1][coordinates[1] - 1] == "1") {
             shotResult = true
             battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "X"
@@ -99,18 +81,13 @@ while (misslesLeft >= 1) {
             battleBoard[coordinates[0] - 1][coordinates[1] - 1] = "O";
             miss++;
             board(shotResult);
-            //      ask for input
-            // console.log("Invalid entry");
         }
-        console.log(countX);
         if (hit == countX) {
             console.log(`YOU SANK MY ENTIRE FLEET!\nYou had ${hit} out of ${countX} hits, which sank all the ships.\n You won, congratulations!`);
             break;
         }
     }
 }
-
-
 
 
 if (misslesLeft == 0) {
