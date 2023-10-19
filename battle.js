@@ -5,7 +5,7 @@ const chalk = require('chalk');
 console.log("Let's play battleship!");
 console.log('You have ' + chalk.underline('30 missles') + ' to fire to sink all five ships.');
 console.log(" ");
-let misslesLeft = 10;
+let misslesLeft = 30;
 const battleBoard = Array.from({ length: 10 }, e => Array(10).fill(" "));
 const board = function (shotResult) {
     if (shotResult !== undefined) {
@@ -31,7 +31,7 @@ board();
 //read the file
 let readlineSync = require('readline-sync');
 const fs = require('fs');
-let read = fs.readFileSync(__dirname + '/copy.txt', 'utf8');
+let read = fs.readFileSync(__dirname + '/map.txt', 'utf8');
 
 //split by \r and \n
 let splitReadfile = read.split('\r\n');
