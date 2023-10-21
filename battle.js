@@ -42,7 +42,7 @@ let splitReadfile = read.split('\r\n');
 let grid = [];
 for (let i = 0; i < splitReadfile.length; i++) {
     let mapLine = splitReadfile[i].split(',')
-    //create a grid
+    //create a grid t store data in the arra
     grid.push(mapLine);
 };
 //count the X, as a ship, in the grid
