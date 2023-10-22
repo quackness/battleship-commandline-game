@@ -54,7 +54,7 @@ for (let h = 0; h < grid.length; h++) {
         }
     }
 };
-//initialize hits, misses, cordinates aray and shotesults
+//initialize hits, misses, cordinates aray and shotresults
 let hit = 0;
 let miss = 0;
 let shotResult;
@@ -89,6 +89,11 @@ while (missilesLeft >= 1) {
             battleBoard[coordinates[0] - 1][coordinates[1] - 1] = chalk.bgGreen("X")
             hit++;
             displayBoard(shotResult);
+            //announce the winner when a user hits all the ships, exit the loop prematurely
+            if (hit == countX) {
+                console.log(`YOU SANK MY ENTIRE FLEET!\nYou had ${hit} out of ${countX} hits, which sank all the ships.\nYou won, congratulations!`);
+                break;
+            }
             //handle miss shot
         } else {
             shotResult = false;
@@ -96,18 +101,14 @@ while (missilesLeft >= 1) {
             miss++;
             displayBoard(shotResult);
         }
-        //announce the winner when a user hits all the ships, exit the loop prematurely
-        if (hit == countX) {
-            console.log(`YOU SANK MY ENTIRE FLEET!\nYou had ${hit} out of ${countX} hits, which sank all the ships.\nYou won, congratulations!`);
-            break;
-        }
     }
 };
-
 //announce lost game when user runs out of missiles
 if (missilesLeft == 0) {
     console.log(`You have 0 missiles remaining.\nGAME OVER.\nYou had ${hit} out of ${countX} hits, but did not sink all the ships.\nBetter luck next time.`);
 };
+
+
 
 
 
