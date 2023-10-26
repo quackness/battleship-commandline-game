@@ -45,7 +45,7 @@ for (let i = 0; i < splitReadfile.length; i++) {
     //create a grid t store data in the arra
     grid.push(mapLine);
 };
-//count the X, as a ship, in the grid
+//count the X character, as a ship, in the grid
 let countX = 0;
 for (let h = 0; h < grid.length; h++) {
     for (let o = 0; o < grid[h].length; o++) {
@@ -59,11 +59,12 @@ let hit = 0;
 let miss = 0;
 let shotResult;
 let coordinates = [];
+//this array is used to print the letter coordinates at the top of the game board
 let letters = [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
 
 //loop as long as you have missiles left
 while (missilesLeft >= 1) {
-    //ask for the coordinates input
+    //ask for the coordinates input, store in the var
     let shoot = readlineSync.question("Choose your target (Ex. A1): ");
     //handle invalid input
     if (shoot === '' || shoot.length === 1 || shoot.length > 3) {
@@ -78,7 +79,6 @@ while (missilesLeft >= 1) {
         //use letters array map the letter from the user input, trabnslate it into the index number, assign to the element at [1] in the coordinates array
         let extractedLetterCoordinate = letters.indexOf(shoot.charAt(0).toLowerCase());
         coordinates[1] = extractedLetterCoordinate;
-        console.log(">>", coordinates);
         //handle invalid inputs
         if (coordinates[0] > grid.length || coordinates[1] > grid[0].length || isNaN(numberCoordinates) || coordinates[1] === -1 || coordinates[0] === 0) {
             console.log("Invalid input")
